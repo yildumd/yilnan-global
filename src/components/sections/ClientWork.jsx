@@ -20,6 +20,8 @@ const clientWork = [
     category: 'Logistics',
     description: 'Logistics platform built for a growing delivery operation.',
     status: 'Alpha · Play Store closed testing',
+    url: 'https://ryaniva.com.ng',
+    urlLabel: 'ryaniva.com.ng',
     tags: ['Logistics', 'Mobile'],
     icon: FiTruck,
   },
