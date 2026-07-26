@@ -16,23 +16,23 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-200/80 border-t border-white/10 pt-16 pb-8">
+    <footer className="bg-yilnan-surface/60 border-t border-yilnan-border pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">Yilnan Global</h3>
-            <p className="text-white/50 text-sm mb-4">
+            <h3 className="text-2xl font-semibold tracking-tight gradient-text mb-4">Yilnan Global</h3>
+            <p className="text-yilnan-textFaint text-sm mb-4">
               Building smarter business systems for African businesses.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="text-white/40 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-yilnan-textFaint hover:text-yilnan-accent transition-colors">
                 <FiTwitter size={20} />
               </a>
-              <a href="#" className="text-white/40 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-yilnan-textFaint hover:text-yilnan-accent transition-colors">
                 <FiLinkedin size={20} />
               </a>
-              <a href="#" className="text-white/40 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-yilnan-textFaint hover:text-yilnan-accent transition-colors">
                 <FiGithub size={20} />
               </a>
             </div>
@@ -41,18 +41,18 @@ const Footer = () => {
           {/* Quick Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-white mb-4">{category}</h4>
+              <h4 className="font-semibold text-yilnan-text mb-4">{category}</h4>
               <ul className="space-y-2">
                 {links.map((link) =>
                   typeof link === 'string' ? (
                     <li key={link}>
-                      <a href="#" className="text-white/50 hover:text-primary-400 text-sm transition-colors">
+                      <a href="#" className="text-yilnan-textFaint hover:text-yilnan-accent text-sm transition-colors">
                         {link}
                       </a>
                     </li>
                   ) : (
                     <li key={link.name}>
-                      <Link to={link.to} className="text-white/50 hover:text-primary-400 text-sm transition-colors">
+                      <Link to={link.to} className="text-yilnan-textFaint hover:text-yilnan-accent text-sm transition-colors">
                         {link.name}
                       </Link>
                     </li>
@@ -64,30 +64,30 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-yilnan-text mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-white/50 text-sm">
-                <FiMail className="text-primary-400 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-yilnan-textFaint text-sm">
+                <FiMail className="text-yilnan-accent flex-shrink-0" />
                 <span>yildumd@gmail.com</span>
               </li>
               <li>
                 <a
                   href="tel:+2348164083309"
-                  className="flex items-center gap-2 text-white/50 hover:text-primary-400 text-sm transition-colors"
+                  className="flex items-center gap-2 text-yilnan-textFaint hover:text-yilnan-accent text-sm transition-colors"
                 >
-                  <FiPhone className="text-primary-400 flex-shrink-0" />
+                  <FiPhone className="text-yilnan-accent flex-shrink-0" />
                   <span>+234 816 408 3309</span>
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-white/50 text-sm">
-                <FiMapPin className="text-primary-400 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-yilnan-textFaint text-sm">
+                <FiMapPin className="text-yilnan-accent flex-shrink-0" />
                 <span>Jos, Plateau State</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+        <div className="pt-8 border-t border-yilnan-border text-center text-yilnan-textFaint text-sm">
           &copy; {new Date().getFullYear()} Yilnan Global. All rights reserved.
         </div>
       </Container>

@@ -8,6 +8,7 @@ import {
   FiTrendingUp,
 } from 'react-icons/fi';
 import Section from '../ui/Section';
+import Eyebrow from '../ui/Eyebrow';
 
 const steps = [
   {
@@ -52,20 +53,13 @@ const Process = () => {
   return (
     <Section id="process">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-sm uppercase tracking-wider text-primary-500 font-semibold"
-        >
-          How we work
-        </motion.span>
+        <Eyebrow>How we work</Eyebrow>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4"
+          className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4 mb-4"
         >
           A proven <span className="gradient-text">6‑step process</span>
         </motion.h2>
@@ -74,7 +68,7 @@ const Process = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-white/60 text-lg"
+          className="text-yilnan-textMuted text-lg"
         >
           From discovery to scale – we partner with you every step of the way.
         </motion.p>
@@ -93,16 +87,16 @@ const Process = () => {
           >
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-12 h-12 rounded-xl bg-yilnan-accent flex items-center justify-center text-yilnan-accentDark font-semibold text-xl">
                   {step.number}
                 </div>
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <step.icon className="w-5 h-5 text-primary-400" />
-                  <h3 className="text-xl font-bold">{step.title}</h3>
+                  <step.icon className="w-5 h-5 text-yilnan-accent" />
+                  <h3 className="text-xl font-semibold text-yilnan-text">{step.title}</h3>
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="text-yilnan-textMuted text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>

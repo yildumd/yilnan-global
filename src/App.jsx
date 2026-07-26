@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark-300">
+    <div className="min-h-screen bg-yilnan-base">
       <ScrollToTop />
       <Navbar />
       <main>

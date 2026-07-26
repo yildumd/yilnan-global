@@ -7,7 +7,7 @@ import Container from '../ui/Container';
 const MotionLink = motion(Link);
 
 const outlineButtonClasses =
-  'px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm md:text-base border border-white/20 hover:border-primary-500 text-white hover:text-primary-500 backdrop-blur-sm';
+  'rounded-[10px] border border-yilnan-borderStrong px-6 py-3 text-sm font-medium text-yilnan-text transition hover:bg-yilnan-surface';
 
 const navLinks = [
   { name: 'Home', to: '/' },
@@ -36,7 +36,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark-300/80 backdrop-blur-xl border-b border-white/10 shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-yilnan-base/80 backdrop-blur-xl border-b border-yilnan-border shadow-lg' : 'bg-transparent'
       }`}
     >
       <Container className="py-4 md:py-5">
@@ -57,7 +57,7 @@ const Navbar = () => {
                 end={link.to === '/'}
                 className={({ isActive }) =>
                   `transition-colors text-sm lg:text-base font-medium ${
-                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                    isActive ? 'text-yilnan-text' : 'text-yilnan-textMuted hover:text-yilnan-text'
                   }`
                 }
               >
@@ -74,7 +74,7 @@ const Navbar = () => {
             </MotionLink>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white p-2">
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-yilnan-text p-2">
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-200/95 backdrop-blur-xl border-b border-white/10"
+            className="md:hidden bg-yilnan-surface/95 backdrop-blur-xl border-b border-yilnan-border"
           >
             <Container className="py-6">
               <div className="flex flex-col gap-4">
@@ -97,8 +97,8 @@ const Navbar = () => {
                     end={link.to === '/'}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `py-3 px-4 rounded-lg hover:bg-white/5 ${
-                        isActive ? 'text-white bg-white/5' : 'text-white/80 hover:text-white'
+                      `py-3 px-4 rounded-lg hover:bg-yilnan-surface ${
+                        isActive ? 'text-yilnan-text bg-yilnan-surface' : 'text-yilnan-textMuted hover:text-yilnan-text'
                       }`
                     }
                   >

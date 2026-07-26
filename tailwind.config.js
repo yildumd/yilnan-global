@@ -26,19 +26,6 @@ export default {
           textMuted: '#9a938c',  // secondary/body
           textFaint: '#8a827b',  // captions, stat labels
         },
-        primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-        },
-        dark: {
-          100: '#1a1a2e',
-          200: '#0f0f1a',
-          300: '#0a0a0f',
-        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

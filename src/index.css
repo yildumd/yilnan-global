@@ -9,15 +9,15 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-dark-300 text-white antialiased;
+    @apply bg-yilnan-base text-yilnan-text antialiased;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    @apply bg-yilnan-surface border border-yilnan-border rounded-2xl;
   }
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent;
+    @apply text-yilnan-accent;
   }
 }
