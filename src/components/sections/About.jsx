@@ -4,9 +4,9 @@ import Section from '../ui/Section';
 
 const About = () => {
   const stats = [
-    { icon: FiTarget, value: '7+', label: 'Industries Served' },
-    { icon: FiTrendingUp, value: '150+', label: 'Businesses Transformed' },
-    { icon: FiUsers, value: '98%', label: 'Client Retention' },
+    { icon: FiUsers, value: '2', label: 'Ventures Owned' },
+    { icon: FiTrendingUp, value: '7+', label: 'Client Projects Shipped' },
+    { icon: FiTarget, value: '6+', label: 'Sectors' },
   ];
 
   const values = [

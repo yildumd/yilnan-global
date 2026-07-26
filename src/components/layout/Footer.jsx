@@ -3,7 +3,7 @@ import { FiTwitter, FiLinkedin, FiGithub, FiMail, FiPhone, FiMapPin } from 'reac
 import Container from '../ui/Container';
 
 const footerLinks = {
-  Company: ['About', 'Services', 'Projects', 'Industries'],
+  Company: ['About', 'Ventures', 'Client Work', 'Services', 'Industries'],
   Resources: ['Blog', 'Case Studies', 'Documentation', 'Support'],
   Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
 };

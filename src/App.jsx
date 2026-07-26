@@ -1,8 +1,9 @@
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
+import Ventures from './components/sections/Ventures';
+import ClientWork from './components/sections/ClientWork';
 import Services from './components/sections/Services';
-import Projects from './components/sections/Projects';
 import Industries from './components/sections/Industries';
 import Process from './components/sections/Process';
 import Testimonials from './components/sections/Testimonials';
@@ -17,13 +18,14 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Ventures />
+        <ClientWork />
         <Services />
-        <Projects />
         <Industries />
         <Process />
         <Testimonials />
         <CTA />
-        <Contact />   {/* ← Add this line */}
+        <Contact />
       </main>
       <Footer />
     </div>

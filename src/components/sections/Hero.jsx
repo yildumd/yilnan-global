@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiTrendingUp, FiZap, FiBarChart2 } from 'react-icons/fi';
+import { FiArrowRight, FiTrendingUp, FiZap, FiLayers } from 'react-icons/fi';
 import Button from '../ui/Button';
 import Container from '../ui/Container';
 
@@ -45,9 +45,9 @@ const Hero = () => {
 
             <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/10">
               {[
-                { icon: FiTrendingUp, value: '40%', label: 'Efficiency Gain' },
-                { icon: FiZap, value: '98%', label: 'Automation Rate' },
-                { icon: FiBarChart2, value: '150+', label: 'Businesses Transformed' },
+                { icon: FiLayers, value: '2', label: 'Ventures Owned' },
+                { icon: FiZap, value: '5', label: 'Live Client Products' },
+                { icon: FiTrendingUp, value: '6+', label: 'Sectors' },
               ].map((item, idx) => (
                 <motion.div
                   key={item.label}
