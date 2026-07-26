@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiSend, FiCheckCircle, FiTool, FiMessageCircle } from 'react-icons/fi';
+import { FiSend, FiCheckCircle, FiTool } from 'react-icons/fi';
 import Section from '../ui/Section';
+import Button from '../ui/Button';
 
 const steps = [
   {
@@ -25,12 +27,37 @@ const steps = [
   },
 ];
 
-const whatsappMessage = encodeURIComponent(
-  "Hi Yilnan, I'd like to apply for Yilnan Builds. My business is [name] and here's why a website would help: "
-);
-const applyLink = `https://wa.me/2348164083309?text=${whatsappMessage}`;
-
 const YilnanBuilds = () => {
+  const [form, setForm] = useState({
+    businessName: '',
+    businessType: '',
+    applicantName: '',
+    contact: '',
+    reason: '',
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const message =
+      `Hi Yilnan, I'd like to apply for Yilnan Builds.\n\n` +
+      `Business Name: ${form.businessName}\n` +
+      `Business Type: ${form.businessType}\n` +
+      `Applicant Name: ${form.applicantName}\n` +
+      `Contact: ${form.contact}\n\n` +
+      `Why this business should be selected:\n${form.reason}`;
+
+    window.open(
+      `https://wa.me/2348164083309?text=${encodeURIComponent(message)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
   return (
     <Section id="yilnan-builds" className="bg-dark-200/30">
       <div className="text-center max-w-3xl mx-auto mb-16">
@@ -99,26 +126,92 @@ const YilnanBuilds = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="glass-card p-8 md:p-10 text-center max-w-3xl mx-auto mb-8"
+        className="glass-card p-8 md:p-10 max-w-2xl mx-auto mb-8"
       >
-        <h3 className="text-2xl md:text-3xl font-bold mb-3">
-          Think your business is a good fit?
-        </h3>
-        <p className="text-white/60 mb-6 max-w-xl mx-auto">
-          Tell us who you are and why a website would make a real difference. Applications are
-          reviewed every month.
-        </p>
-        <motion.a
-          href={applyLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm md:text-base bg-primary-600 hover:bg-primary-500 text-white shadow-lg shadow-primary-600/30 hover:shadow-primary-600/50"
-        >
-          <FiMessageCircle />
-          Apply on WhatsApp
-        </motion.a>
+        <div className="text-center mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold mb-3">
+            Think your business is a good fit?
+          </h3>
+          <p className="text-white/60 max-w-xl mx-auto">
+            Fill in the details below. Submitting sends your application straight to us on
+            WhatsApp — applications are reviewed every month.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block text-sm text-white/70 mb-2">Business Name</label>
+              <input
+                type="text"
+                name="businessName"
+                value={form.businessName}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500 transition-colors"
+                placeholder="Your business name"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-white/70 mb-2">Business Type</label>
+              <input
+                type="text"
+                name="businessType"
+                value={form.businessType}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500 transition-colors"
+                placeholder="e.g. Restaurant, Retail, Agritech"
+              />
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block text-sm text-white/70 mb-2">Your Name</label>
+              <input
+                type="text"
+                name="applicantName"
+                value={form.applicantName}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500 transition-colors"
+                placeholder="Your full name"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-white/70 mb-2">Phone or Email</label>
+              <input
+                type="text"
+                name="contact"
+                value={form.contact}
+                onChange={handleChange}
+                required
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500 transition-colors"
+                placeholder="How we can reach you"
+              />
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-sm text-white/70 mb-2">
+              Why should your business be selected?
+            </label>
+            <textarea
+              name="reason"
+              value={form.reason}
+              onChange={handleChange}
+              required
+              rows="4"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500 transition-colors"
+              placeholder="Tell us about your business, your need, and your story..."
+            />
+          </div>
+
+          <Button variant="primary" className="w-full justify-center gap-2">
+            Submit Application <FiSend />
+          </Button>
+        </form>
       </motion.div>
 
       <motion.div

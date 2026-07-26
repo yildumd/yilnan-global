@@ -70,7 +70,7 @@ const Contact = () => {
             </div>
             <div>
               <h3 className="text-sm text-white/50">Location</h3>
-              <p className="text-white font-medium">Lagos, Nigeria</p>
+              <p className="text-white font-medium">Jos, Plateau State</p>
             </div>
           </div>
         </motion.div>

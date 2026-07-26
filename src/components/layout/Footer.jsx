@@ -67,7 +67,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-white/50 text-sm">
                 <FiMapPin className="text-primary-400 flex-shrink-0" />
-                <span>Lagos, Nigeria</span>
+                <span>Jos, Plateau State</span>
               </li>
             </ul>
           </div>
