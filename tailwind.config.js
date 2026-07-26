@@ -7,6 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
+        yilnan: {
+          // base surfaces (dark)
+          base:    '#0C0A09',  // page background (near-black, warm)
+          surface: '#1A1613',  // cards / raised panels
+          surface2:'#221C18',  // hover / secondary panels
+          border:  'rgba(255,255,255,0.06)',   // hairline dividers
+          borderStrong:'rgba(255,255,255,0.15)',// button outlines, emphasis
+
+          // accent (amber/gold) — use SPARINGLY
+          accent:      '#F59E0B',  // primary amber
+          accentDark:  '#1a1002',  // text ON amber buttons
+          accentSoft:  'rgba(245,158,11,0.08)', // pill/badge backgrounds
+          accentBorder:'rgba(245,158,11,0.2)',  // pill/badge borders
+
+          // text
+          text:      '#EDE8E2',  // primary (warm off-white)
+          textMuted: '#9a938c',  // secondary/body
+          textFaint: '#8a827b',  // captions, stat labels
+        },
         primary: {
           50: '#eef2ff',
           100: '#e0e7ff',
