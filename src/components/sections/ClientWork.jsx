@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiArrowUpRight, FiServer, FiTruck, FiClipboard, FiActivity, FiShield } from 'react-icons/fi';
+import { FiArrowUpRight, FiServer, FiTruck, FiClipboard, FiActivity, FiShield, FiUsers } from 'react-icons/fi';
 import Section from '../ui/Section';
 import Eyebrow from '../ui/Eyebrow';
 
@@ -52,6 +52,17 @@ const clientWork = [
     status: 'In development',
     tags: ['React Native', 'Expo', 'Firebase'],
     icon: FiShield,
+  },
+  {
+    name: 'Lee & Ray Agency',
+    category: 'Recruitment / Talent Solutions',
+    description:
+      'Recruitment and talent outsourcing agency connecting businesses with vetted African talent. Built as a multi-page marketing site with WhatsApp enquiry, a talent-pool signup, and services/contact pages.',
+    status: 'Live',
+    url: 'https://lee-ray-agency.vercel.app/',
+    urlLabel: 'lee-ray-agency.vercel.app',
+    tags: ['Web', 'Marketing Site', 'WhatsApp Integration'],
+    icon: FiUsers,
   },
 ];
 
