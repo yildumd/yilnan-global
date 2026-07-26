@@ -1,9 +1,15 @@
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FiTwitter, FiLinkedin, FiGithub, FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import Container from '../ui/Container';
 
 const footerLinks = {
-  Company: ['About', 'Ventures', 'Client Work', 'Services', 'Industries'],
+  Company: [
+    { name: 'About', to: '/about' },
+    { name: 'Portfolio', to: '/portfolio' },
+    { name: 'Services', to: '/services' },
+    { name: 'Yilnan Builds', to: '/yilnan-builds' },
+    { name: 'Contact', to: '/contact' },
+  ],
   Resources: ['Blog', 'Case Studies', 'Documentation', 'Support'],
   Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
 };
@@ -37,13 +43,21 @@ const Footer = () => {
             <div key={category}>
               <h4 className="font-semibold text-white mb-4">{category}</h4>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-white/50 hover:text-primary-400 text-sm transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) =>
+                  typeof link === 'string' ? (
+                    <li key={link}>
+                      <a href="#" className="text-white/50 hover:text-primary-400 text-sm transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.name}>
+                      <Link to={link.to} className="text-white/50 hover:text-primary-400 text-sm transition-colors">
+                        {link.name}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           ))}

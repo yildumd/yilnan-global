@@ -44,15 +44,23 @@ The distinction matters: a visitor should see both "this group owns and runs rea
 5. Ensure the Hero + About clearly communicate the group/holding-company identity, not a plain dev studio.
 
 ## Site sections (target structure)
-- Hero — group identity: "a group building across tech and food"
-- About — the Yilnan story, holding-company framing
-- **Our Ventures** — Yilnan-owned businesses (see below)
-- **Our Work / Client Solutions** — client projects (see below)
-- Services / What We Do — the studio offering (12-category rate card)
-- Yilnan Builds — monthly giveaway
-- Process — how Yilnan works with clients
-- Testimonials
-- Contact / CTA
+
+### MULTI-PAGE ARCHITECTURE (current priority)
+The site is being converted from single-page scroll to a MULTI-PAGE site using React Router. Nav links load real separate pages, not scroll anchors. Final structure = 5 pages:
+
+- **Home** (`/`) — Hero + brief intro to the group + a taste of ventures/work + CTA. Landing page.
+- **Portfolio** (`/portfolio`) — TWO distinct sections on one page: "Our Ventures" (AgriSync AI, Mbegu Flavours) on top, then "Our Work / Client Solutions" (Bethstream, Ryaniva, LevyTrack, HealthOS, GuardPath) below. Keep the two tiers visually distinct — do not merge into one flat list.
+- **Services** (`/services`) — the studio offering (12-category rate card).
+- **Yilnan Builds** (`/yilnan-builds`) — the giveaway + application form. Own page so it's directly shareable.
+- **About** (`/about`) — group story, process, holding-company identity, testimonials.
+- **Contact** (`/contact`) — contact form + details (Jos, Plateau State).
+
+Nav: Home · Portfolio · Services · Yilnan Builds · About · Contact
+
+The existing section components (Hero, About, Ventures, ClientWork, Services, Industries, Process, Testimonials, YilnanBuilds, Contact, CTA) become the CONTENT of these pages — reorganized, not rebuilt. Distribute sensibly: e.g. Home gets Hero + condensed intros + CTA; Portfolio gets Ventures + ClientWork; About gets About + Process + Industries + Testimonials.
+
+### DESIGN DIRECTION (for later redesign pass — not this step)
+Dark + minimal, confident, restrained. Deep near-black bg (not pure #000), ONE restrained accent color (TBD — David has no brand color yet), typography-led with strong size contrast, asymmetric layouts (not everything centered in a column), minimal tasteful motion only. Fast and clean. Avoid the flat stacked-card "AI template" look.
 
 ## The "Yilnan Builds" giveaway (important — get the framing right)
 A monthly community giveaway: Yilnan builds a website for ONE selected business per month; the winner pays only for hosting/domain.

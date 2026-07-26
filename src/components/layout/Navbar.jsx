@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, NavLink } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-import Button from '../ui/Button';
 import Container from '../ui/Container';
 
+const MotionLink = motion(Link);
+
+const outlineButtonClasses =
+  'px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm md:text-base border border-white/20 hover:border-primary-500 text-white hover:text-primary-500 backdrop-blur-sm';
+
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Ventures', href: '#ventures' },
-  { name: 'Work', href: '#client-work' },
-  { name: 'Services', href: '#services' },
-  { name: 'Industries', href: '#industries' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', to: '/' },
+  { name: 'Portfolio', to: '/portfolio' },
+  { name: 'Services', to: '/services' },
+  { name: 'Yilnan Builds', to: '/yilnan-builds' },
+  { name: 'About', to: '/about' },
+  { name: 'Contact', to: '/contact' },
 ];
 
 const Navbar = () => {
@@ -37,21 +41,37 @@ const Navbar = () => {
     >
       <Container className="py-4 md:py-5">
         <div className="flex items-center justify-between">
-          <motion.a
-            href="#home"
+          <MotionLink
+            to="/"
             className="text-2xl md:text-3xl font-bold gradient-text"
             whileHover={{ scale: 1.05 }}
           >
             Yilnan Global
-          </motion.a>
+          </MotionLink>
 
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="text-white/80 hover:text-white transition-colors text-sm lg:text-base font-medium">
+              <NavLink
+                key={link.name}
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  `transition-colors text-sm lg:text-base font-medium ${
+                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                  }`
+                }
+              >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
-            <Button variant="outline">Book Consultation →</Button>
+            <MotionLink
+              to="/contact"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={outlineButtonClasses}
+            >
+              Book Consultation →
+            </MotionLink>
           </div>
 
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white p-2">
@@ -71,11 +91,27 @@ const Navbar = () => {
             <Container className="py-6">
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
-                  <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-white/80 hover:text-white py-3 px-4 rounded-lg hover:bg-white/5">
+                  <NavLink
+                    key={link.name}
+                    to={link.to}
+                    end={link.to === '/'}
+                    onClick={() => setIsOpen(false)}
+                    className={({ isActive }) =>
+                      `py-3 px-4 rounded-lg hover:bg-white/5 ${
+                        isActive ? 'text-white bg-white/5' : 'text-white/80 hover:text-white'
+                      }`
+                    }
+                  >
                     {link.name}
-                  </a>
+                  </NavLink>
                 ))}
-                <Button variant="outline" className="w-full justify-center">Book Consultation →</Button>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className={`${outlineButtonClasses} w-full`}
+                >
+                  Book Consultation →
+                </Link>
               </div>
             </Container>
           </motion.div>
