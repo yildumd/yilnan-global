@@ -1,51 +1,65 @@
 import { motion } from 'framer-motion';
 import {
-  FiBriefcase,
-  FiGitBranch,
-  FiDatabase,
-  FiUsers,
-  FiZap,
-  FiMonitor,
+  FiCode,
+  FiSmartphone,
   FiCpu,
+  FiGrid,
+  FiGlobe,
+  FiClipboard,
+  FiCompass,
+  FiCloud,
 } from 'react-icons/fi';
 import Section from '../ui/Section';
 import Eyebrow from '../ui/Eyebrow';
 
 const services = [
   {
-    icon: FiBriefcase,
-    title: 'Business Consulting',
-    description: 'Strategic planning, financial modeling, market entry, and operational audits.',
+    icon: FiCode,
+    title: 'Web Application Development',
+    description: 'Full-stack web apps and platforms — React, Vite, Firebase, Supabase.',
+    proof: 'Bethstream Solutions, Yilnan HealthOS, AgriSync AI',
   },
   {
-    icon: FiGitBranch,
-    title: 'Operations Structuring',
-    description: 'Define workflows, SOPs, team roles, and performance tracking systems.',
-  },
-  {
-    icon: FiDatabase,
-    title: 'Restaurant Systems',
-    description: 'Kitchen workflow automation, POS integration, inventory, and order management.',
-  },
-  {
-    icon: FiUsers,
-    title: 'Staffing Support',
-    description: 'Staff sourcing, onboarding systems, attendance, and shift organization.',
-  },
-  {
-    icon: FiZap,
-    title: 'Automation & Workflows',
-    description: 'Smart forms, WhatsApp automation, dashboards, and reporting systems.',
-  },
-  {
-    icon: FiMonitor,
-    title: 'Website & Dashboard Development',
-    description: 'Custom business portals, internal dashboards, and modern websites.',
+    icon: FiSmartphone,
+    title: 'Mobile App Development',
+    description: 'Cross-platform Android/iOS apps — Flutter, React Native, Expo, Capacitor.',
+    proof: 'Ryaniva, LevyTrack, GuardPath, AgriSync Android',
   },
   {
     icon: FiCpu,
-    title: 'Digital Transformation',
-    description: 'End-to-end modernization of legacy processes with scalable tech.',
+    title: 'AI-Powered Solutions',
+    description: 'AI integrated into real products — diagnosis, assistants, and automation via the Claude API.',
+    proof: 'AgriSync AI crop diagnosis, YILAI assistant',
+  },
+  {
+    icon: FiGrid,
+    title: 'Business & Management Systems',
+    description: 'Custom internal platforms — dashboards, inventory, e-wallets, multi-role admin systems.',
+    proof: 'Yilnan HealthOS — 7 departments, e-wallet, pharmacy inventory',
+  },
+  {
+    icon: FiGlobe,
+    title: 'Company Websites & Digital Presence',
+    description: 'Professional marketing sites with WhatsApp ordering, CMS, and custom domains.',
+    proof: 'Bethstream Solutions, Mbegu Flavours, this site',
+  },
+  {
+    icon: FiClipboard,
+    title: 'GovTech & FinTech Platforms',
+    description: 'Digital systems for government partnerships and payments — registration, levy collection, integrations.',
+    proof: 'LevyTrack — Plateau State trader registration + levy',
+  },
+  {
+    icon: FiCompass,
+    title: 'Product Strategy & MVP Building',
+    description: 'Taking an idea to a launched, real product — architecture, build, deploy, iterate.',
+    proof: 'AgriSync AI, Mbegu Flavours, and more — idea to launch',
+  },
+  {
+    icon: FiCloud,
+    title: 'Deployment, Hosting & Maintenance',
+    description: 'Getting products live and keeping them running — hosting, app store submission, ongoing support.',
+    proof: 'agrisyncai.farm, bethstreamsolutions.com, yilnan.vercel.app',
   },
 ];
 
@@ -70,7 +84,7 @@ const Services = () => {
           transition={{ delay: 0.2 }}
           className="text-yilnan-textMuted text-lg"
         >
-          We blend consultancy with technology to deliver real operational impact.
+          Eight things we've actually shipped — not a wish list.
         </motion.p>
       </div>
 
@@ -89,7 +103,10 @@ const Services = () => {
               <service.icon className="w-full h-full text-yilnan-textMuted group-hover:text-yilnan-accent transition-colors" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-yilnan-text">{service.title}</h3>
-            <p className="text-yilnan-textMuted text-sm leading-relaxed">{service.description}</p>
+            <p className="text-yilnan-textMuted text-sm leading-relaxed mb-4">{service.description}</p>
+            <p className="text-xs text-yilnan-textFaint pt-3 border-t border-yilnan-border">
+              {service.proof}
+            </p>
           </motion.div>
         ))}
       </div>
