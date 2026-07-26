@@ -1,20 +1,36 @@
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiTarget, FiTrendingUp, FiUsers } from 'react-icons/fi';
+import { FiCheckCircle, FiTarget, FiTrendingUp, FiUsers, FiBox, FiBriefcase, FiGift } from 'react-icons/fi';
 import Section from '../ui/Section';
 import Eyebrow from '../ui/Eyebrow';
 
 const About = () => {
   const stats = [
     { icon: FiUsers, value: '2', label: 'Ventures Owned' },
-    { icon: FiTrendingUp, value: '7+', label: 'Client Projects Shipped' },
+    { icon: FiTrendingUp, value: '5', label: 'Live Client Products' },
     { icon: FiTarget, value: '6+', label: 'Sectors' },
   ];
 
-  const values = [
-    'Operational excellence',
-    'Data‑driven decisions',
-    'African context first',
-    'Long‑term partnership',
+  const values = ['Africa-first', 'We own our work', 'Built to last', 'One idea at a time'];
+
+  const groupStructure = [
+    {
+      icon: FiBox,
+      title: 'Our Ventures',
+      description: 'Products we own and run — AgriSync AI, Mbegu Flavours.',
+      status: 'Live',
+    },
+    {
+      icon: FiBriefcase,
+      title: 'Client Solutions',
+      description: 'Software we build for businesses across Africa.',
+      status: 'Active',
+    },
+    {
+      icon: FiGift,
+      title: 'Yilnan Builds',
+      description: 'A free website for one selected business, every month.',
+      status: 'Monthly',
+    },
   ];
 
   return (
@@ -27,19 +43,27 @@ const About = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <Eyebrow className="mb-4">About Yilnan Global</Eyebrow>
+          <Eyebrow className="mb-4">Who we are</Eyebrow>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4 mb-6">
-            We don’t just build websites — we build{' '}
-            <span className="gradient-text">business systems</span>
+            A group that builds — and{' '}
+            <span className="gradient-text">owns</span> — what it believes in.
           </h2>
           <p className="text-yilnan-textMuted leading-relaxed mb-6">
-            Yilnan Global is a modern African business consultancy and digital transformation firm.
-            We help restaurants, startups, and growing businesses structure operations, automate workflows,
-            digitize systems, and scale efficiently.
+            Yilnan Global Concepts is a Jos-based group building across technology and food. We
+            don't just build software for hire — we build and run our own ventures, from an AI
+            agricultural platform to an export-grade spice brand. That's the difference: we back
+            our own ideas with the same code we write for yours.
+          </p>
+          <p className="text-yilnan-textMuted leading-relaxed mb-6">
+            It started with a simple belief — that world-class products can be built from Plateau
+            State, for Nigeria and the wider African market. Since then we've shipped platforms
+            across agriculture, health, logistics, governance, security, and food. Some we own.
+            Some we built for clients. All of them solve real, local problems.
           </p>
           <p className="text-yilnan-textMuted leading-relaxed mb-8">
-            Our approach combines deep operational understanding with cutting‑edge technology.
-            We don’t offer generic templates; we build custom systems that solve real African business challenges.
+            When you work with Yilnan, you're not handing your idea to a shop that's never carried
+            the risk itself. We know what it takes to launch, run, and grow a real product —
+            because we do it with our own. Your idea. Our code.
           </p>
 
           {/* Quick values list */}
@@ -71,7 +95,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Right side – visual / digital transformation illustration */}
+        {/* Right side – group structure visual */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -82,57 +106,26 @@ const About = () => {
           <div className="glass-card p-6 relative z-10">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm font-mono text-yilnan-textFaint">digital_transformation_log</span>
+              <span className="text-sm font-mono text-yilnan-textFaint">yilnan_group_structure</span>
             </div>
             <div className="space-y-4">
-              <div className="bg-yilnan-surface2 rounded-xl p-4">
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-yilnan-textMuted">System modernization</span>
-                  <span className="text-yilnan-accent">Active</span>
+              {groupStructure.map((item) => (
+                <div key={item.title} className="bg-yilnan-surface2 rounded-xl p-4 flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-yilnan-accentSoft border border-yilnan-accentBorder flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-yilnan-accent" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="text-sm font-medium text-yilnan-text">{item.title}</span>
+                      <span className="text-xs text-yilnan-accent flex-shrink-0">{item.status}</span>
+                    </div>
+                    <p className="text-xs text-yilnan-textFaint leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-                <div className="w-full bg-yilnan-border rounded-full h-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '87%' }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="bg-yilnan-accent h-2 rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="bg-yilnan-surface2 rounded-xl p-4">
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-yilnan-textMuted">Workflow automation</span>
-                  <span className="text-yilnan-accent">94%</span>
-                </div>
-                <div className="w-full bg-yilnan-border rounded-full h-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '94%' }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.7 }}
-                    className="bg-yilnan-accent h-2 rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="bg-yilnan-surface2 rounded-xl p-4">
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="text-yilnan-textMuted">Staff onboarding digitization</span>
-                  <span className="text-yilnan-accent">100%</span>
-                </div>
-                <div className="w-full bg-yilnan-border rounded-full h-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: '100%' }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.9 }}
-                    className="bg-yilnan-accent h-2 rounded-full"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
             <div className="mt-6 text-center text-xs text-yilnan-textFaint">
-              Real‑time system health – powered by Yilnan automation
+              Based in Jos, Plateau State
             </div>
           </div>
 
