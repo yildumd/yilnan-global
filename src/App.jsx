@@ -5,6 +5,7 @@ import Ventures from './components/sections/Ventures';
 import ClientWork from './components/sections/ClientWork';
 import Services from './components/sections/Services';
 import Industries from './components/sections/Industries';
+import YilnanBuilds from './components/sections/YilnanBuilds';
 import Process from './components/sections/Process';
 import Testimonials from './components/sections/Testimonials';
 import CTA from './components/sections/CTA';
@@ -22,6 +23,7 @@ function App() {
         <ClientWork />
         <Services />
         <Industries />
+        <YilnanBuilds />
         <Process />
         <Testimonials />
         <CTA />

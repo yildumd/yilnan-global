@@ -56,9 +56,14 @@ const Footer = () => {
                 <FiMail className="text-primary-400 flex-shrink-0" />
                 <span>yildumd@gmail.com</span>
               </li>
-              <li className="flex items-center gap-2 text-white/50 text-sm">
-                <FiPhone className="text-primary-400 flex-shrink-0" />
-                <span>+234 816 408 39</span>
+              <li>
+                <a
+                  href="tel:+2348164083309"
+                  className="flex items-center gap-2 text-white/50 hover:text-primary-400 text-sm transition-colors"
+                >
+                  <FiPhone className="text-primary-400 flex-shrink-0" />
+                  <span>+234 816 408 3309</span>
+                </a>
               </li>
               <li className="flex items-center gap-2 text-white/50 text-sm">
                 <FiMapPin className="text-primary-400 flex-shrink-0" />

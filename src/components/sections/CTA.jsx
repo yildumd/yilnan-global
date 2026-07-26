@@ -33,10 +33,10 @@ const CTA = () => {
               <FiMail className="text-primary-400" />
               <span>yildumd@gmail.com</span>
             </div>
-            <div className="flex items-center gap-2">
+            <a href="tel:+2348164083309" className="flex items-center gap-2 hover:text-primary-400 transition-colors">
               <FiPhone className="text-primary-400" />
-              <span>+234 816 408 39</span>
-            </div>
+              <span>+234 816 408 3309</span>
+            </a>
           </div>
         </motion.div>
       </Container>

@@ -52,15 +52,18 @@ const Contact = () => {
               <p className="text-white font-medium">yildumd@gmail.com</p>
             </div>
           </div>
-          <div className="glass-card p-6 flex items-center gap-4">
+          <a
+            href="tel:+2348164083309"
+            className="glass-card p-6 flex items-center gap-4 hover:bg-white/5 transition-colors"
+          >
             <div className="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center">
               <FiPhone className="w-6 h-6 text-primary-500" />
             </div>
             <div>
               <h3 className="text-sm text-white/50">Phone</h3>
-              <p className="text-white font-medium">+234 816 408 39</p>
+              <p className="text-white font-medium">+234 816 408 3309</p>
             </div>
-          </div>
+          </a>
           <div className="glass-card p-6 flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center">
               <FiMapPin className="w-6 h-6 text-primary-500" />
