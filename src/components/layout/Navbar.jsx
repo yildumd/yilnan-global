@@ -6,9 +6,6 @@ import Container from '../ui/Container';
 
 const MotionLink = motion(Link);
 
-const outlineButtonClasses =
-  'rounded-[10px] border border-yilnan-borderStrong px-6 py-3 text-sm font-medium text-yilnan-text transition hover:bg-yilnan-surface';
-
 const navLinks = [
   { name: 'Home', to: '/' },
   { name: 'Portfolio', to: '/portfolio' },
@@ -18,14 +15,20 @@ const navLinks = [
   { name: 'Contact', to: '/contact' },
 ];
 
+const linkClasses = ({ isActive }) =>
+  `relative text-sm lg:text-[15px] font-medium transition-colors after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:rounded-full after:bg-yilnan-accent after:transition-all after:duration-300 ${
+    isActive
+      ? 'text-yilnan-text after:w-full'
+      : 'text-yilnan-text/75 hover:text-yilnan-text after:w-0 hover:after:w-full'
+  }`;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -36,45 +39,42 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-yilnan-base/80 backdrop-blur-xl border-b border-yilnan-border shadow-lg' : 'bg-transparent'
+        scrolled
+          ? 'bg-yilnan-base/85 backdrop-blur-xl border-b border-yilnan-border shadow-lg'
+          : 'bg-gradient-to-b from-yilnan-base/70 to-transparent'
       }`}
     >
-      <Container className="py-4 md:py-5">
+      <Container className={`transition-all duration-300 ${scrolled ? 'py-3' : 'py-5'}`}>
         <div className="flex items-center justify-between">
           <MotionLink
             to="/"
-            className="text-2xl md:text-3xl font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
+            className="text-2xl md:text-3xl font-bold tracking-tight text-yilnan-text"
+            whileHover={{ scale: 1.04 }}
           >
-            Yilnan Global
+            Yilnan<span className="text-yilnan-accent">.</span>
           </MotionLink>
 
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) =>
-                  `transition-colors text-sm lg:text-base font-medium ${
-                    isActive ? 'text-yilnan-text' : 'text-yilnan-textMuted hover:text-yilnan-text'
-                  }`
-                }
-              >
+              <NavLink key={link.name} to={link.to} end={link.to === '/'} className={linkClasses}>
                 {link.name}
               </NavLink>
             ))}
             <MotionLink
               to="/contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={outlineButtonClasses}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full bg-yilnan-accent px-5 py-2.5 text-sm font-semibold text-yilnan-accentDark transition hover:brightness-95"
             >
-              Book Consultation →
+              Start a project →
             </MotionLink>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-yilnan-text p-2">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            className="md:hidden text-yilnan-text p-2"
+          >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
@@ -86,10 +86,10 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-yilnan-surface/95 backdrop-blur-xl border-b border-yilnan-border"
+            className="md:hidden bg-yilnan-base/97 backdrop-blur-xl border-b border-yilnan-border"
           >
             <Container className="py-6">
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <NavLink
                     key={link.name}
@@ -97,8 +97,10 @@ const Navbar = () => {
                     end={link.to === '/'}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `py-3 px-4 rounded-lg hover:bg-yilnan-surface ${
-                        isActive ? 'text-yilnan-text bg-yilnan-surface' : 'text-yilnan-textMuted hover:text-yilnan-text'
+                      `py-3 px-4 rounded-lg text-base transition-colors ${
+                        isActive
+                          ? 'text-yilnan-text bg-yilnan-surface'
+                          : 'text-yilnan-text/75 hover:text-yilnan-text hover:bg-yilnan-surface'
                       }`
                     }
                   >
@@ -108,9 +110,9 @@ const Navbar = () => {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className={`${outlineButtonClasses} w-full`}
+                  className="mt-2 rounded-full bg-yilnan-accent px-5 py-3 text-sm font-semibold text-yilnan-accentDark text-center transition hover:brightness-95"
                 >
-                  Book Consultation →
+                  Start a project →
                 </Link>
               </div>
             </Container>

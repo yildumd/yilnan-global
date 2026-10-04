@@ -28,6 +28,7 @@ const trustNames = [
 const ventures = [
   {
     icon: FiSun,
+    image: '/ventures/agrisync.jpg',
     category: 'AgriTech',
     title: 'AI-powered agriculture, built in Jos.',
     description: 'AI crop diagnosis, a produce marketplace, and farm GPS registration — all in one platform.',
@@ -36,6 +37,7 @@ const ventures = [
   },
   {
     icon: FiBox,
+    image: '/ventures/mbegu.jpg',
     category: 'Food & Spice',
     title: 'Export-grade Nigerian spice.',
     description: 'Pepper Soup Spice, Mai Suya, and Naija Everyday — blended and packed from our own factory in Jos.',
@@ -48,7 +50,7 @@ const HomePage = () => {
     <>
       <Hero />
 
-      {/* Trust strip */}
+      {/* Trust strip — stays dark, bridges from hero */}
       <section className="py-8 border-b border-yilnan-border">
         <Container>
           <motion.div
@@ -70,8 +72,10 @@ const HomePage = () => {
         </Container>
       </section>
 
-      {/* Positioning statement */}
-      <Section>
+      {/* ===== LIGHT BLOCK START ===== */}
+
+      {/* Positioning statement — LIGHT */}
+      <Section className="bg-yilnan-light">
         <Container>
           <motion.div
             initial="hidden"
@@ -80,20 +84,20 @@ const HomePage = () => {
             variants={fadeUp}
             className="max-w-4xl mx-auto text-center"
           >
-            <p className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-yilnan-text">
+            <p className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-yilnan-ink">
               Most agencies build for others.{' '}
-              <span className="text-yilnan-accent">We build for others — and for ourselves.</span>
+              <span className="text-yilnan-accentOnLight">We build for others — and for ourselves.</span>
             </p>
-            <p className="mt-6 text-yilnan-textMuted text-lg max-w-2xl mx-auto">
-              Yilnan is a group. We own and run ventures across tech and food, and we build
-              software for businesses across Africa.
+            <p className="mt-6 text-yilnan-inkMuted text-lg max-w-2xl mx-auto">
+              Yilnan is a group. We own and run ventures across tech and food, build software for
+              businesses across Africa, and move goods through trade and distribution.
             </p>
           </motion.div>
         </Container>
       </Section>
 
-      {/* Featured ventures — asymmetric, alternating */}
-      <Section className="bg-yilnan-surface/30">
+      {/* Featured ventures — LIGHT, asymmetric, with images */}
+      <Section className="bg-yilnan-light">
         <Container>
           <motion.div
             initial="hidden"
@@ -102,8 +106,8 @@ const HomePage = () => {
             variants={fadeUp}
             className="mb-14"
           >
-            <span className="text-xs uppercase tracking-wider text-yilnan-textFaint">Our ventures</span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mt-2">
+            <span className="text-xs uppercase tracking-wider text-yilnan-inkMuted">Our ventures</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mt-2 text-yilnan-ink">
               Businesses we own and run.
             </h2>
           </motion.div>
@@ -121,11 +125,16 @@ const HomePage = () => {
                   whileInView="show"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  className="flex-1 relative"
+                  className="flex-1 w-full"
                 >
-                  <div className="absolute inset-0 bg-yilnan-accent/10 blur-3xl rounded-full" />
-                  <div className="glass-card relative aspect-[4/3] flex items-center justify-center">
-                    <venture.icon className="w-16 h-16 md:w-20 md:h-20 text-yilnan-accent" />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-yilnan-lightBorder bg-yilnan-lightCard shadow-lg">
+                    <venture.icon className="absolute inset-0 m-auto w-16 h-16 md:w-20 md:h-20 text-yilnan-accent" />
+                    <img
+                      src={venture.image}
+                      alt={venture.title}
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      className="relative z-10 h-full w-full object-cover"
+                    />
                   </div>
                 </motion.div>
 
@@ -136,26 +145,26 @@ const HomePage = () => {
                   variants={fadeUp}
                   className="flex-1"
                 >
-                  <span className="text-xs uppercase tracking-wider text-yilnan-textFaint">
+                  <span className="text-xs uppercase tracking-wider text-yilnan-inkMuted">
                     {venture.category}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-yilnan-text mt-2 mb-3">
+                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-yilnan-ink mt-2 mb-3">
                     {venture.title}
                   </h3>
-                  <p className="text-yilnan-textMuted leading-relaxed mb-4">{venture.description}</p>
+                  <p className="text-yilnan-inkMuted leading-relaxed mb-4">{venture.description}</p>
                   {venture.url ? (
                     <a
                       href={venture.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-yilnan-accent hover:brightness-110 transition-all"
+                      className="inline-flex items-center gap-1 text-sm text-yilnan-accentOnLight hover:brightness-110 transition-all"
                     >
                       Live at {venture.urlLabel}
                       <FiArrowUpRight />
                     </a>
                   ) : (
-                    <div className="inline-flex items-center gap-2 text-sm text-yilnan-textFaint">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                    <div className="inline-flex items-center gap-2 text-sm text-yilnan-inkMuted">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                       {venture.status}
                     </div>
                   )}
@@ -173,7 +182,7 @@ const HomePage = () => {
           >
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 text-yilnan-accent hover:brightness-110 font-medium transition-all"
+              className="inline-flex items-center gap-2 text-yilnan-accentOnLight hover:brightness-110 font-medium transition-all"
             >
               See all our work
               <FiArrowRight />
@@ -182,8 +191,8 @@ const HomePage = () => {
         </Container>
       </Section>
 
-      {/* What we do — condensed services teaser */}
-      <Section>
+      {/* What we do — condensed services teaser — LIGHT */}
+      <Section className="bg-yilnan-light">
         <Container>
           <motion.div
             initial="hidden"
@@ -192,7 +201,7 @@ const HomePage = () => {
             variants={fadeUp}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-yilnan-ink">
               What we build.
             </h2>
           </motion.div>
@@ -207,10 +216,10 @@ const HomePage = () => {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="flex items-center gap-3 rounded-xl border border-yilnan-border bg-yilnan-surface2 px-4 py-3"
+                className="flex items-center gap-3 rounded-xl border border-yilnan-lightBorder bg-yilnan-lightCard px-4 py-3 shadow-sm"
               >
-                <service.icon className="w-5 h-5 text-yilnan-textMuted flex-shrink-0" />
-                <span className="text-sm text-yilnan-text leading-tight">{service.title}</span>
+                <service.icon className="w-5 h-5 text-yilnan-accentOnLight flex-shrink-0" />
+                <span className="text-sm text-yilnan-ink leading-tight">{service.title}</span>
               </div>
             ))}
           </motion.div>
@@ -224,7 +233,7 @@ const HomePage = () => {
           >
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-yilnan-accent hover:brightness-110 font-medium transition-all"
+              className="inline-flex items-center gap-2 text-yilnan-accentOnLight hover:brightness-110 font-medium transition-all"
             >
               Explore services
               <FiArrowRight />
@@ -233,7 +242,9 @@ const HomePage = () => {
         </Container>
       </Section>
 
-      {/* Yilnan Builds teaser */}
+      {/* ===== LIGHT BLOCK END ===== */}
+
+      {/* Yilnan Builds teaser — DARK, drama band */}
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-yilnan-accent/10 blur-3xl" />
         <Container className="relative z-10">
@@ -267,7 +278,7 @@ const HomePage = () => {
         </Container>
       </Section>
 
-      {/* 2027 teaser — subtle */}
+      {/* 2027 teaser — DARK, subtle */}
       <Section className="!py-10 md:!py-14">
         <Container>
           <motion.div
@@ -287,7 +298,7 @@ const HomePage = () => {
         </Container>
       </Section>
 
-      {/* Final CTA */}
+      {/* Final CTA — DARK */}
       <CTA />
     </>
   );

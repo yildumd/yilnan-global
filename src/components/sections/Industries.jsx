@@ -1,77 +1,84 @@
 import { motion } from 'framer-motion';
 import {
-  FiCoffee,
   FiSun,
-  FiUsers,
-  FiBookOpen,
-  FiShoppingBag,
-  FiMonitor,
+  FiHeart,
+  FiTruck,
   FiBriefcase,
+  FiShield,
+  FiCoffee,
+  FiBookOpen,
+  FiUsers,
 } from 'react-icons/fi';
 import Section from '../ui/Section';
-import Eyebrow from '../ui/Eyebrow';
 
 const industries = [
   {
-    icon: FiCoffee,
-    name: 'Restaurants',
-    description: 'Kitchen systems, POS, order flow, staff management',
-  },
-  {
     icon: FiSun,
     name: 'Agriculture',
-    description: 'Supply chain, farm management, IoT integration',
+    description: 'AI crop diagnosis and farm platforms — AgriSync AI',
   },
   {
-    icon: FiUsers,
-    name: 'Startups',
-    description: 'Operational foundations, dashboards, automation',
+    icon: FiHeart,
+    name: 'Health',
+    description: 'Hospital management and patient systems — Yilnan HealthOS',
+  },
+  {
+    icon: FiTruck,
+    name: 'Logistics',
+    description: 'Delivery and logistics platforms — Ryaniva',
+  },
+  {
+    icon: FiBriefcase,
+    name: 'Government',
+    description: 'Revenue and registration systems — LevyTrack',
+  },
+  {
+    icon: FiShield,
+    name: 'Security',
+    description: 'Community safety intelligence — GuardPath',
+  },
+  {
+    icon: FiCoffee,
+    name: 'Food',
+    description: 'Spice production and food brands — Mbegu Flavours',
   },
   {
     icon: FiBookOpen,
     name: 'Education',
-    description: 'LMS, student portals, certification systems',
+    description: 'Learning platforms and school systems',
   },
   {
-    icon: FiShoppingBag,
-    name: 'Retail',
-    description: 'Inventory, sales tracking, multi‑store systems',
-  },
-  {
-    icon: FiMonitor,
-    name: 'Agencies',
-    description: 'Client portals, project tracking, reporting',
-  },
-  {
-    icon: FiBriefcase,
-    name: 'SMEs',
-    description: 'End‑to‑end digital transformation',
+    icon: FiUsers,
+    name: 'Startups & SMEs',
+    description: 'MVPs, websites, and digital foundations',
   },
 ];
 
 const Industries = () => {
   return (
-    <Section id="industries" className="bg-yilnan-surface/20">
+    <Section id="industries" className="bg-yilnan-light">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <Eyebrow>Industry expertise</Eyebrow>
+        <span className="text-xs uppercase tracking-wider font-semibold text-yilnan-accentOnLight">
+          Where we work
+        </span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4 mb-4"
+          className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4 mb-4 text-yilnan-ink"
         >
-          Transforming businesses{' '}
-          <span className="gradient-text">across Africa</span>
+          Building across Africa's{' '}
+          <span className="text-yilnan-accentOnLight">key sectors</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-yilnan-textMuted text-lg"
+          className="text-yilnan-inkMuted text-lg"
         >
-          We understand the unique challenges of each sector. Our solutions are tailored to your industry.
+          From agriculture to healthcare, we build real software for the sectors that move Africa forward.
         </motion.p>
       </div>
 
@@ -84,13 +91,13 @@ const Industries = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.05, duration: 0.4 }}
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="glass-card p-5 text-center group cursor-pointer"
+            className="rounded-2xl border border-yilnan-lightBorder bg-yilnan-lightCard p-5 text-center group cursor-pointer shadow-sm hover:shadow-md transition-all"
           >
-            <div className="w-14 h-14 rounded-2xl bg-yilnan-surface2 border border-yilnan-border p-3 mx-auto mb-4 group-hover:border-yilnan-accentBorder transition-colors">
-              <industry.icon className="w-full h-full text-yilnan-textMuted group-hover:text-yilnan-accent transition-colors" />
+            <div className="w-14 h-14 rounded-2xl bg-yilnan-light border border-yilnan-lightBorder p-3 mx-auto mb-4 group-hover:border-yilnan-accentBorder transition-colors">
+              <industry.icon className="w-full h-full text-yilnan-inkMuted group-hover:text-yilnan-accentOnLight transition-colors" />
             </div>
-            <h3 className="text-lg font-semibold mb-2 text-yilnan-text">{industry.name}</h3>
-            <p className="text-xs text-yilnan-textFaint">{industry.description}</p>
+            <h3 className="text-lg font-semibold mb-2 text-yilnan-ink">{industry.name}</h3>
+            <p className="text-xs text-yilnan-inkMuted">{industry.description}</p>
           </motion.div>
         ))}
       </div>
