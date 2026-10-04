@@ -58,10 +58,10 @@ export default function Hero() {
             animate="show"
             className="mb-6 text-4xl font-semibold leading-[1.05] tracking-tight text-yilnan-text sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            We build and back ventures
+            We build world-class ventures
             <br />
-            <span className="text-yilnan-textFaint">—</span> and we build for{" "}
-            <span className="text-yilnan-accent">you.</span>
+            <span className="text-yilnan-textFaint">—</span> from Africa, for{" "}
+            <span className="text-yilnan-accent">the world.</span>
           </motion.h1>
 
           <motion.p
