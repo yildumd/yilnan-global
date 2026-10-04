@@ -19,7 +19,6 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-yilnan-base">
-      {/* Full-bleed background image (graceful fallback to dark if missing) */}
       <div className="absolute inset-0" aria-hidden="true">
         <img
           src="/hero.jpg"
@@ -27,12 +26,10 @@ export default function Hero() {
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
           className="h-full w-full object-cover opacity-70"
         />
-        {/* dark gradient overlays for text legibility + brand tone */}
         <div className="absolute inset-0 bg-gradient-to-r from-yilnan-base via-yilnan-base/92 to-yilnan-base/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-yilnan-base via-transparent to-yilnan-base/30" />
       </div>
 
-      {/* soft amber glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px]"
@@ -51,7 +48,7 @@ export default function Hero() {
             className="mb-7 inline-flex items-center gap-2 rounded-full border border-yilnan-accentBorder bg-yilnan-accentSoft px-3.5 py-1.5 text-xs tracking-wide text-yilnan-accent backdrop-blur-sm"
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-yilnan-accent" />
-            A group building across tech and food
+            A global group — technology · food · trade
           </motion.div>
 
           <motion.h1
@@ -74,9 +71,10 @@ export default function Hero() {
             animate="show"
             className="mb-10 max-w-xl text-lg leading-relaxed text-yilnan-textMuted"
           >
-            Yilnan Global Concepts is a Jos-based group. We own and run our own
-            products across technology and food, build software for businesses
-            across Africa, and move goods through trade. Your idea. Our code.
+            Yilnan Global Concepts builds and backs ventures across technology,
+            food, and trade — from Nigeria to partners and markets worldwide. We
+            create our own products and build world-class software for businesses
+            everywhere. Your idea. Our code.
           </motion.p>
 
           <motion.div
@@ -101,7 +99,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* stat row */}
         <motion.div
           variants={fadeUp}
           custom={4}

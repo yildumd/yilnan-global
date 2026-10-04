@@ -61,7 +61,7 @@ const HomePage = () => {
             className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6"
           >
             <span className="text-xs uppercase tracking-wider text-yilnan-textFaint whitespace-nowrap">
-              Products live across Africa
+              Trusted across Africa — building for the world
             </span>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-yilnan-textMuted">
               {trustNames.map((name) => (
@@ -89,8 +89,8 @@ const HomePage = () => {
               <span className="text-yilnan-accentOnLight">We build for others — and for ourselves.</span>
             </p>
             <p className="mt-6 text-yilnan-inkMuted text-lg max-w-2xl mx-auto">
-              Yilnan is a group. We own and run ventures across tech and food, build software for
-              businesses across Africa, and move goods through trade and distribution.
+              Yilnan is a group. We create and back ventures across technology, food, and trade —
+              building for businesses in Nigeria and around the world.
             </p>
           </motion.div>
         </Container>
