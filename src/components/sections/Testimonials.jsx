@@ -6,8 +6,8 @@ import Section from '../ui/Section';
 // (see git history) once more real client quotes come in.
 const testimonials = [
   {
-    name: 'Chidi Nwosu',
-    role: 'Founder, AgriSync AI',
+    name: 'Greg',
+    role: 'Founder, Urban Rides',
     content: 'Professional, responsive, and deeply knowledgeable. They didn’t just build software – they improved our entire business model.',
     rating: 5,
   },
